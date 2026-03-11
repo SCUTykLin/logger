@@ -7,8 +7,15 @@
  */
 
 #include <iostream>
+#include "utility/Logger.h"
+
+using namespace yazi::utility;
 
 int main() {
-    std::cout << "log" << std::endl;
+    Logger::instance()->open("./test.log");
+    Logger::instance()->level(Logger::INFO);
+    Logger::instance()->max(2048);
+    for (int i = 0; i < 1000; i++)
+        error("name is %s, age is %d", "opake", 289);
     return 0;
 }
